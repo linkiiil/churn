@@ -1,26 +1,38 @@
-# 📉 Predição de Churn de Clientes
+# 📉 Telecom Retention Radar: Predição de Churn de Clientes
 
-Projeto de **Machine Learning** para previsão de **Customer Churn**, com foco na identificação antecipada de clientes com maior probabilidade de cancelamento. O projeto contempla todo o ciclo de Ciência de Dados, desde a análise exploratória até a interpretação do modelo final, utilizando boas práticas de pré-processamento, modelagem e avaliação.
+Projeto de **Machine Learning** desenvolvido para prever o **churn de clientes** em uma empresa de telecomunicações. O trabalho contempla todas as etapas de um projeto de Ciência de Dados, desde a compreensão do problema de negócio até a interpretação do modelo final, com foco na geração de insights que apoiem estratégias de retenção de clientes.
 
 ---
 
-## 📌 Objetivo
+## 🎯 Objetivo
 
-O churn representa a perda de clientes e pode gerar impactos significativos na receita de uma empresa. O objetivo deste projeto é desenvolver um modelo capaz de identificar clientes com maior risco de cancelamento, permitindo que ações de retenção sejam realizadas de forma proativa.
+Desenvolver um modelo preditivo capaz de identificar clientes com maior probabilidade de cancelar seus serviços, além de compreender quais características possuem maior influência nesse comportamento.
+
+O projeto busca transformar dados em informações úteis para apoiar a tomada de decisão e direcionar campanhas de retenção de forma mais eficiente.
 
 ---
 
 ## 📂 Dataset
 
-O conjunto de dados contém informações cadastrais e comportamentais dos clientes, incluindo características demográficas, serviços contratados e informações financeiras.
+O conjunto de dados contém informações de clientes de uma empresa de telecomunicações, incluindo:
 
-**Variável alvo**
+* Dados demográficos;
+* Tipo de contrato;
+* Serviços contratados;
+* Informações de cobrança;
+* Tempo de permanência;
+* Valor mensal e valor total pago.
 
-* Churn (Cliente cancelou ou não o serviço)
+A variável alvo do estudo é:
+
+**Churn**
+
+* **Yes:** cliente cancelou o serviço;
+* **No:** cliente permaneceu na empresa.
 
 ---
 
-### 🛠️ Tecnologias Utilizadas
+## ⚙️ Tecnologias Utilizadas
 
 * 🐍 Python
 * 📊 Pandas
@@ -28,92 +40,98 @@ O conjunto de dados contém informações cadastrais e comportamentais dos clien
 * 📈 Matplotlib
 * 🎨 Seaborn
 * 🤖 Scikit-Learn
-* ⚡ XGBoost 
 * 📓 Jupyter Notebook
 
 ---
 
-## 🔍 Etapas do Projeto
+## 🔬 Metodologia
 
-### 📊 1. Análise Exploratória (EDA)
+O projeto foi desenvolvido seguindo um pipeline completo de Ciência de Dados:
 
-* Análise das distribuições das variáveis
-* Identificação de padrões relacionados ao churn
-* Visualização de correlações
-* Análise das principais características dos clientes
+### 📊 Análise Exploratória dos Dados (EDA)
 
----
+* Distribuição das variáveis;
+* Análise do desbalanceamento da variável alvo;
+* Relação entre atributos e churn;
+* Identificação de padrões de comportamento.
 
-### 🧹 2. Pré-processamento
+### 🧹 Pré-processamento
 
-* Tratamento de valores ausentes
-* Encoding de variáveis categóricas
-* Escalonamento dos atributos
-* Construção de Pipeline utilizando Scikit-Learn
+* Tratamento de valores ausentes;
+* Codificação de variáveis categóricas;
+* Padronização dos dados;
+* Construção de Pipelines com Scikit-Learn.
 
----
+### 🤖 Modelagem
 
-### 🤖 3. Modelagem
+Foram comparados diferentes algoritmos de classificação utilizando validação cruzada e métricas apropriadas para o problema.
 
-Foram avaliados diferentes modelos de classificação, comparando seu desempenho através de diversas métricas.
+As principais etapas incluíram:
 
-Entre as etapas realizadas:
+* Separação Treino/Teste;
+* Cross Validation;
+* Comparação entre modelos;
+* Seleção do modelo final;
+* Ajuste do threshold de decisão.
 
-* Separação Treino/Teste
-* Pipeline completo
-* Validação cruzada
-* Comparação entre modelos
-* Ajuste de threshold
-* Seleção do modelo final
+### 📈 Avaliação
 
----
+O desempenho foi analisado utilizando:
 
-### 📈 4. Avaliação
-
-O desempenho foi analisado utilizando métricas como:
-
-* ROC-AUC
-* Precision
-* Recall
-* F1-Score
-* Matriz de Confusão
-
-Além das métricas tradicionais, também foram analisados:
-
-* Distribuição das probabilidades previstas
-* Curva de calibração
-* Análise de erros
-* Interpretação do modelo
+* ROC-AUC;
+* Precision;
+* Recall;
+* F1-Score;
+* Matriz de Confusão;
+* Curva ROC;
+* Curva de Calibração;
+* Distribuição das probabilidades previstas.
 
 ---
 
-## 💡 Principais Insights
+## 💡 Principais Resultados
 
-* Clientes com contratos mensais apresentaram maior propensão ao churn.
-* O ajuste do threshold permitiu priorizar a identificação de clientes em risco, aumentando o recall do modelo.
-* A interpretação dos coeficientes possibilitou compreender os fatores mais associados ao cancelamento.
-* O modelo mostrou potencial para apoiar estratégias de retenção de clientes.
+* O modelo apresentou boa capacidade de discriminar clientes com maior risco de churn.
+* A utilização de um **threshold de 20%** priorizou a identificação de clientes com maior probabilidade de cancelamento, aumentando o recall do modelo.
+* A interpretação dos coeficientes permitiu identificar características fortemente associadas ao churn, como contratos mensais e determinadas configurações dos serviços contratados.
+* Os resultados demonstram o potencial do modelo como ferramenta de apoio à decisão para campanhas de retenção.
 
 ---
 
-## 📊 Estrutura do Projeto
+## ⚠️ Limitações
+
+* Possibilidade de **data leakage** em tenure, exigindo cuidados para utilização em ambiente de produção;
+* O modelo foi desenvolvido utilizando uma única base de dados de telecomunicações;
+* As relações encontradas representam associações estatísticas, não relações de causalidade.
+
+---
+
+## 🚀 Trabalhos Futuros
+
+* Mitigar possíveis fontes de data leakage;
+* Incorporar informações temporais sobre o comportamento dos clientes;
+* Explorar novas variáveis relacionadas ao histórico de utilização dos serviços;
+* Ajustar o threshold considerando diferentes cenários de custo-benefício.
+
+---
+
+## 📁 Estrutura do Repositório
 
 ```text
-📦 Customer-Churn
+📦 Churn
 │
-├── 📓 Projeto - Churn.ipynb
-└── 📁 images/ (opcional)
+├── 📓 Projeto.ipynb
+├── 📄 Telecom_Retencao.pdf
 ```
 
 ---
 
-## 🚀 Possíveis Aplicações
+## 📄 Documentação
 
-* Campanhas de retenção
-* CRM Inteligente
-* Segmentação de clientes
-* Priorização de contatos comerciais
-* Apoio à tomada de decisão
+O repositório contém:
+
+* **Projeto.ipynb** → Notebook completo contendo todas as etapas do desenvolvimento.
+* **Telecom_retencao.pdf** → Relatório/apresentação do projeto com metodologia, resultados e conclusões.
 
 ---
 
@@ -127,11 +145,3 @@ Além das métricas tradicionais, também foram analisados:
 * Threshold Tuning
 * Model Interpretation
 * Business Analytics
-
----
-
-## 🎯 Resultados
-
-O modelo desenvolvido demonstrou boa capacidade de discriminação entre clientes com maior e menor probabilidade de churn. A escolha de um threshold inferior ao padrão permitiu aumentar a sensibilidade do modelo, tornando-o mais adequado para cenários onde perder um cliente é mais custoso do que realizar contatos preventivos.
-
-Os resultados reforçam a importância de combinar métricas quantitativas com interpretação do modelo e conhecimento do problema de negócio para gerar soluções mais úteis e acionáveis.
